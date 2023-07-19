@@ -1,56 +1,86 @@
-namespace PackerTracker
+using System.Collections.Generic;
+
+namespace PackerTracker.Models
 {
-    class PackItem
+    public class PackItem
     {
-        public string name { get; set; }
-        public string brand { get; set; }
-        public double price
+        //private string _name;
+        //private string _brand;
+        private double _price;
+        private double _weight;
+        private bool _isPurchased;
+        private bool _isPacked;
+        public string Name { get; set; }
+        public string Brand { get; set; }
+        public double Price
         {
-            get;
+            get
+            {
+                return _price;
+            }
             set
             {
-                price = noNegative(value);
+                _price = noNegative(value);
             }
         }
-        public double weight
+        public double Weight
         {
-            get;
+            get
+            {
+                return _weight;
+            }
             set
             {
-                weight = noNegative(value);
+                _weight = noNegative(value);
             }
         }
-        public bool isPurchase
+        public bool IsPurchased
         {
-            get;
+            get
+            {
+                return _isPurchased;
+            }
             set
             {
                 if (value)
                 {
-                    isPurchase = true;
+                    _isPurchased = true;
                 }
                 else
                 {
-                    isPurchase = false;
-                    isPacked = false;
+                    _isPurchased = false;
+                    _isPacked = false;
                 }
             }
         }
-        public bool isPacked
+        public bool IsPacked
         {
-            get;
+            get
+            {
+                return _isPacked;
+            }
             set
             {
                 if (value)
                 {
-                    isPacked = isPurchased;
+                    _isPacked = true;
+                    _isPurchased = true;
                 }
                 else
                 {
-                    isPacked = false;
+                    _isPacked = false;
                 }
 
             }
+        }
+        public PackItem()
+        {
+            Name = "";
+            Brand = "";
+            Price = 0;
+            Weight = 0;
+            IsPurchased = false;
+            IsPacked = false;
         }
         private double noNegative(double value)
         {

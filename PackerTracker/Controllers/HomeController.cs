@@ -6,7 +6,6 @@ namespace PackerTracker.Controllers
 {
    public class HomeController : Controller
     {
-        Dictionary<string, PackList> _packingLists = new Dictionary<string, PackList>();
         [HttpGet("/")]
         public ActionResult Index()
         {
@@ -14,15 +13,21 @@ namespace PackerTracker.Controllers
         }
 
         [HttpGet("/NewList")]
-        public ActionResult NewList() {
+        public ActionResult NewList() 
+        {
             return View();
         }
 
         [HttpPost("/NewList")]
         public ActionResult NewList(string listTitle) {
-            PackList newList = new PackList(listTitle);
-            _packingLists.Add(listTitle, newList);
+            new PackList(listTitle);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet("/{id}")]
+        public ActionResult Show(string id) {
+            PackList packList = PackList.Lists[id];
+            return View(packList);
         }
     }
 }

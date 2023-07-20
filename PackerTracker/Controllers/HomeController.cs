@@ -24,7 +24,7 @@ namespace PackerTracker.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("/List/{id}")]
         public ActionResult Show(string id) {
             PackList packList = PackList.Lists[id];
             return View(packList);

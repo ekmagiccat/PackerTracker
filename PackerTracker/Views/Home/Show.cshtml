@@ -11,6 +11,13 @@
 
 <body>
     <h1>@Model.Name</h1>
+    @using PackerTracker.Models;
+    <ul>
+        @foreach (PackItem packItem in @Model.PackingList)
+        {
+            <li>@packItem</li>
+        }
+    </ul>
 </body>
 
 </html>

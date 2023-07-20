@@ -15,7 +15,7 @@
     <ul>
         @foreach (string name in PackList.Lists.Keys)
         {
-            <li><a href="/@name">@name</a></li>
+            <li><a href="/List/@name">@name</a></li>
         }
     </ul>
     <form action="/NewList" method="get">

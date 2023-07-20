@@ -10,18 +10,12 @@
 </head>
 
 <body>
-    <h1>@Model.Name</h1>
-
-    <form action="/List/@Model.Name/NewItem" method="get">
-        <button type="submit">Add an item</button>
+    <h1>Packer Tracker</h1>
+    <form action="/List/@Model.Name/NewItem" method="post">
+        <label for="itemName">Add a new item to the @Model.Name list</label>
+        <input id="itemName" name="name" type="text">
+        <button type="submit">Submit</button>
     </form>
-    @using PackerTracker.Models;
-    <ul>
-        @foreach (PackItem packItem in @Model.PackingList)
-        {
-            <li>@packItem.Name</li>
-        }
-    </ul>
 </body>
 
 </html>

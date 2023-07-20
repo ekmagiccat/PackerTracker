@@ -29,5 +29,20 @@ namespace PackerTracker.Controllers
             PackList packList = PackList.Lists[id];
             return View(packList);
         }
+
+        [HttpGet("/List/{id}/NewItem")]
+        public ActionResult AddItem(string id) {
+            PackList packList = PackList.Lists[id];
+            return View(packList);
+        }
+
+        [HttpPost("/List/{id}/NewItem")]
+        public ActionResult AddItem(string id, string name) {
+            PackList packList = PackList.Lists[id];
+            PackItem newPackItem = new PackItem();
+            newPackItem.Name = name;
+            packList.AddItem(newPackItem);
+            return RedirectToAction("Show", new {id = id});
+        }
     }
 }

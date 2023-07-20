@@ -73,7 +73,7 @@ namespace PackerTracker.Models
 
             }
         }
-        /*
+
         public PackItem()
         {
             Name = "";
@@ -82,7 +82,7 @@ namespace PackerTracker.Models
             Weight = 0;
             IsPurchased = false;
             IsPacked = false;
-        }*/
+        }
 
         public PackItem(string name, string brand, double price, double weight, 
                         bool isPurchased, bool isPacked)
@@ -105,3 +105,4 @@ namespace PackerTracker.Models
         }
     }
 }
+

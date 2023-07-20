@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using PackerTracker.Models;
+using System;
 
 namespace PackerTracker.Controllers
 {
@@ -37,11 +38,12 @@ namespace PackerTracker.Controllers
         }
 
         [HttpPost("/List/{id}/NewItem")]
-        public ActionResult AddItem(string id, string name) {
+        public ActionResult AddItem(string id, string name, string brand, 
+                                    double price, double weight, bool isPurchased, bool isPacked) {
             PackList packList = PackList.Lists[id];
-            PackItem newPackItem = new PackItem();
-            newPackItem.Name = name;
+            PackItem newPackItem = new PackItem(name, brand, price, weight, isPurchased, isPacked);
             packList.AddItem(newPackItem);
+            Console.WriteLine("\nCHECKBOX INPUTS FOUND HERE:",isPurchased.ToString(), isPacked.ToString());
             return RedirectToAction("Show", new {id = id});
         }
     }

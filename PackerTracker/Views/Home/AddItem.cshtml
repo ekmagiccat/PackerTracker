@@ -11,9 +11,20 @@
 
 <body>
     <h1>Packer Tracker</h1>
+    <h2>Add a new item to the @Model.Name list</h2>
     <form action="/List/@Model.Name/NewItem" method="post">
-        <label for="itemName">Add a new item to the @Model.Name list</label>
-        <input id="itemName" name="name" type="text">
+        <label for="itemName">Name:</label>
+        <input id="itemName" name="name" type="text"><br>
+        <label for="brand">Brand:</label>
+        <input id="brand" name="brand" type="text"><br>
+        <label for="price">Price:</label>
+        <input id="price" name="price" type="number"><br>
+        <label for="weight">Weight:</label>
+        <input id="weight" name="weight" type="number"><br>
+        <label for="isPurchased">Is Purchased:</label>
+        <input id="isPurchased" name="isPurchased" type="checkbox" value="True"><br>
+        <label for="isPacked">Is Packed:</label>
+        <input id="isPacked" name="isPacked" type="checkbox" value="True"><br>
         <button type="submit">Submit</button>
     </form>
 </body>

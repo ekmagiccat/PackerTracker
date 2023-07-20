@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace PackerTracker.Models {
     public class PackList {
         public static Dictionary<string, PackList> Lists {get;} = new Dictionary<string, PackList>();
-        public List<PackItem> PackingList {get;} = new List<PackItem>{new PackItem()};
+        public List<PackItem> PackingList {get;} = new List<PackItem>();
         public string Name {get; set;}
 
         public PackList(string name) {

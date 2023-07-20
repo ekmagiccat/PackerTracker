@@ -19,7 +19,14 @@
     <ul>
         @foreach (PackItem packItem in @Model.PackingList)
         {
-            <li>@packItem.Name</li>
+            <div>
+                <span>@packItem.Name</span>
+                <span>@packItem.Brand</span>
+                <span>$@packItem.Price</span>
+                <span>@packItem.Weight</span>
+                <span>@packItem.IsPurchased</span>
+                <span>@packItem.IsPacked</span>
+            </div>
         }
     </ul>
 </body>
